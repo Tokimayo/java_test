@@ -11,10 +11,14 @@ public class cal {
 			System.out.println("年月を指定する場合は、「8 2024」のように指定してください");
 		
 		}else if(args.length == 2) {
-			int otherMonth = Integer.parseInt(args[0]) -1;
+			int otherMonth = Integer.parseInt(args[0]);
 	        int otherYear = Integer.parseInt(args[1]);
 			int thisDate = 0;
-			outputCalendar(otherYear, otherMonth, thisDate);
+			if((1 <= otherMonth && otherMonth <= 12)) {
+				outputCalendar(otherYear, otherMonth -1, thisDate);
+			}else {
+				System.out.println("年月を指定する場合は、「8 2024」のように指定してください");
+			}
 		}else if(args.length == 0) {
 			int thisYear = cl.get(Calendar.YEAR);
 			int thisMonth = cl.get(Calendar.MONTH);
